@@ -1,12 +1,24 @@
 import { Sorter } from "./Sorter";
 import { NumberCollection } from "./NumbersCollection";
 import { CharacterCollection } from "./CharacterCollection";
+import { LinkedList } from "./LinkedList";
+
 const num = new NumberCollection([-5, 4, 776, 234, 2, -23]);
-const sorter = new Sorter(num);
-sorter.sort();
-console.log(sorter.collection);
+num.sort();
+
+console.log(num.data);
 
 const char = new CharacterCollection("yzZZOOeHey");
-const sorterChar = new Sorter(char);
-sorterChar.sort();
-console.log(sorterChar.collection);
+char.sort();
+console.log(char.data);
+
+const linkedList = new LinkedList();
+linkedList.add(500);
+linkedList.add(-10);
+linkedList.add(4);
+linkedList.add(12350);
+linkedList.add(-3);
+
+linkedList.sort();
+
+linkedList.print();
