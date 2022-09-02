@@ -1,21 +1,18 @@
-const fs = require("fs");
+import { CsvFileReader } from "./CsvFileReader";
+import { MatchReader } from "./MatchReader";
+import { MatchResults } from "./MatchResults";
 console.log("hello");
 
-const matches = fs
-    .readFileSync("./football.csv", {
-        encoding: "utf-8",
-    })
-    .split("\n")
-    .map((row: string): string[] => {
-        return row.split(",");
-    });
+const matches = reader.data;
 
 console.log(matches);
 
+//enumeration
+
 let manUnitedWinns = 0;
-matches.map((match: string[]): void => {
-    (match[1] === "Man United" && match[5] === "H") ||
-    (match[2] === "Man United" && match[5] === "A")
+matches.map((match): void => {
+    (match[1] === "Man United" && match[5] === MatchResults.HomeWin) ||
+    (match[2] === "Man United" && match[5] === MatchResults.AwayWin)
         ? manUnitedWinns++
         : null;
 });
